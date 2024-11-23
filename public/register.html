@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0; /* Sin margen para que el banner quede arriba */
+        }
+        .banner {
+            width: 100%;
+            max-height: 150px; /* Ajusta la altura del banner */
+            overflow: hidden;
+            margin-bottom: 20px; /* Espacio entre el banner y el contenido */
+        }
+        .banner img {
+            width: 100%;
+            height: auto; /* Mantiene la proporción */
+        }
+        .app {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 100%;
+            max-width: 400px; /* Limitar el ancho del contenedor */
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        input {
+            display: block;
+            margin: 10px auto;
+            padding: 10px;
+            width: 100%;
+            max-width: 300px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            transition: border-color 0.3s;
+        }
+        input:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<div class="banner">
+    <img src="https://th.bing.com/th/id/R.8405c7e502610a8ac194a9aff2fe8c0a?rik=wsuaRyd3WwDEOw&riu=http%3a%2f%2funacar.mx%2fExt_universitaria%2fimagenes%2fbanner.jpg&ehk=JnPprzGN2zX57%2bj%2bZ0%2fKH%2bKVeXQZvPapBVSGAySmdss%3d&risl=&pid=ImgRaw&r=0" alt="Logo de la Empresa"> <!-- Cambia "logo.png" por la ruta de tu logo -->
+</div>
+
+<div class="app">
+    <h1>Registro</h1>
+    <form id="registerForm">
+        <input type="text" id="username" placeholder="Nombre de usuario" required>
+        <input type="password" id="password" placeholder="Contraseña" required>
+        <input type="text" id="role" placeholder="Rol (admin/user, opcional)">
+        <button type="submit">Registrar</button>
+    </form>
+</div>
+
+<script>
+    document.getElementById('registerForm').addEventListener('submit', async function(event) {
+        event.preventDefault(); // Evitar que el formulario se envíe de forma tradicional
+
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+        const role = document.getElementById('role').value || 'user'; // Rol por defecto
+
+        try {
+            const response = await fetch('http://localhost:3000/api/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ username, password, role })
+            });
+
+            if (response.ok) {
+                alert('Usuario registrado con éxito');
+                
+                // Redirigir según el rol
+                if (role.toLowerCase() === 'admin') {
+                    window.location.href = 'admin_dashboard_bueno.html'; // Cambia esto a la ruta del dashboard de administrador
+                } else {
+                    window.location.href = 'user_dashboard.html'; // Cambia esto a la ruta del dashboard de usuario
+                }
+            } else {
+                const errorText = await response.text();
+                alert('Error al registrar: ' + errorText);
+            }
+        } catch (error) {
+            console.error('Error en la conexión:', error);
+        }
+    });
+</script>
+
+</body>
+</html>

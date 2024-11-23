@@ -1,0 +1,123 @@
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #a6778d;
+}
+
+.app {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 600px;
+}
+
+h1 {
+    text-align: center;
+    font-weight: 500;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+
+.admin_actividad {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+#titulo_input,
+#descripcion_input,
+#hora_input,
+#lugar_input,
+#capacidad_input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #007BFF;
+    border: none;
+    border-radius: 5px;
+    color: white;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#agregar_actividad {
+    background-color: #307351;
+}
+
+#eliminar_actividad {
+    background-color: #FF6347;
+}
+
+#contenedor_actividad {
+    margin-top: 20px;
+    max-height: 300px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.actividad {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    position: relative;
+}
+
+.actividad:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+.actividad:nth-child(even) {
+    background-color: #eef9ff;
+}
+
+.eliminar_actividad {
+    background-color: #FF6347;
+    justify-content: end;
+}
+
+.editar_actividad, .eliminar_actividad {
+    padding: 2px 5px;
+    margin-left: 5px;
+    font-size: 12px;
+}
+
+.editar_actividad {
+    background-color: #FFA500;
+}
+
+.editar_titulo, .editar_nota {
+    width: 100%;
+    margin-bottom: 5px;
+    padding: 5px;
+}
+
+.guardar_edicion, .cancelar_edicion {
+    padding: 5px 10px;
+    margin-right: 5px;
+}
+
+.guardar_edicion {
+    background-color: #4CAF50;
+}
+
+.cancelar_edicion {
+    background-color: #f44336;
+}
