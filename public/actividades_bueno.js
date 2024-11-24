@@ -127,7 +127,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function agregarActividad(titulo, descripcion, fecha, hora, lugar, capacidad) {
-        fetch('http://localhost:3000/api/actividades_bueno', {
+        fetch('https://pruebaafi.onrender.com/api/actividades_bueno', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -151,7 +151,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     function eliminarActividad(id, filaActividad) {
         if (confirm('¿Estás seguro de que deseas eliminar esta actividad?')) {
-            fetch(`http://localhost:3000/api/actividades_bueno/${id}`, {
+            fetch(`https://pruebaafi.onrender.com/api/actividades_bueno/${id}`, {
                 method: 'DELETE',
             })
             .then(response => {
@@ -174,7 +174,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
 
     function actualizarActividad(id, titulo, descripcion, fecha, hora, lugar, capacidad) {
-        fetch(`http://localhost:3000/api/actividades_bueno/${id}`, {
+        fetch(`https://pruebaafi.onrender.com/api/actividades_bueno/${id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
@@ -203,7 +203,7 @@ const contenedor_interes = document.getElementById('contenedor_interes');
 
 // Función para cargar los datos de interes_resumen
 function cargarInteres() {
-    fetch('http://localhost:3000/api/interes_resumen') // Asegúrate de que la URL es la correcta
+    fetch('https://pruebaafi.onrender.com/api/interes_resumen') // Asegúrate de que la URL es la correcta
         .then(response => {
             if (!response.ok) {
                 throw new Error('Error al cargar los datos de interés');
