@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     function cargarActividades() {
-        fetch('http://localhost:3000/api/actividades_bueno')
+        fetch('https://pruebaafi.onrender.com/api/actividades_bueno')
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Error al cargar las actividades');
