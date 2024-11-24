@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Declaramos la función registrarInteres fuera de la asignación a window
     window.registrarInteres=async function registrarInteres(actividadId, interes) {
         try {
-            const response = await fetch('http://localhost:3000/api/registrar-interes', {
+            const response = await fetch('https://pruebaafi.onrender.com/api/registrar-interes', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Función para obtener las actividades de la API
     async function obtenerActividades() {
         try {
-            const response = await fetch('http://localhost:3000/api/actividades_bueno');
+            const response = await fetch('https://pruebaafi.onrender.com/api/actividades_bueno');
             if (!response.ok) throw new Error('Error al obtener actividades');
             const actividades = await response.json();
             mostrarActividades(actividades);
